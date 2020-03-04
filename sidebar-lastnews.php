@@ -5,9 +5,9 @@
  * @package startheme
  */
 
-$exclude = is_front_page() ? get_option( 'sticky_posts' ) : get_the_ID();
+$exclude = is_front_page() ? get_option('sticky_posts') : get_the_ID();
 
-$lastnews = get_posts( array(
+$lastnews = get_posts(array(
     'numberposts' => 5,
     'category_name' => 'actualites',
     'exclude' => $exclude
@@ -20,7 +20,8 @@ $lastnews = get_posts( array(
 
         <header class="sidebar-header d-flex flex-wrap justify-content-between align-items-start">
             <h2 class="sidebar-title"><?php _e('Dernières actualités', 'startheme') ?></h2>
-            <a href="<?= esc_url(get_category_link(1)) ?>" class="btn btn-outline-primary"><?php _e('Toutes les actualités', 'startheme') ?></a>
+            <a href="<?= esc_url(get_category_link(1)) ?>"
+               class="btn btn-outline-primary"><?php _e('Toutes les actualités', 'startheme') ?></a>
         </header>
 
         <?php if ($lastnews) : ?>
@@ -45,7 +46,6 @@ $lastnews = get_posts( array(
                             <?php the_excerpt(); ?>
                         </div>
 
-                        <?php the_title(); ?>
                     </article>
 
                 <?php endforeach;

@@ -4,10 +4,11 @@
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('google_fonts', '//fonts.googleapis.com/css?family=Roboto+Web:400,700&display=swap', false, null);
+    wp_enqueue_style('google_fonts', '//fonts.googleapis.com/css?family=Roboto:400,700&display=swap', false, null);
     wp_enqueue_style('icone_fonts', '//cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css', false, null);
     wp_enqueue_style('startheme-styles', get_template_directory_uri() . '/dist/css/main.css', false, null);
     wp_enqueue_script('startheme-scripts', get_template_directory_uri() . '/dist/js/main.js', ['jquery'], null, true);
+    wp_localize_script('startheme-scripts', 'WPURLS', array( 'themeURL' => get_template_directory_uri() ));
 }, 100);
 
 
